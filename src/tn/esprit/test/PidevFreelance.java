@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Scanner;
 import tn.pidev.entity.Formation;
 import tn.pidev.entity.Participation;
+import tn.pidev.entity.user;
 import tn.pidev.service.FormationService;
 import tn.pidev.service.ParticipationService;
 
@@ -26,17 +27,19 @@ public class PidevFreelance {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
      FormationService fs = new FormationService ();
+     user r1 = new user(1);
      
-      Formation f1 = new Formation("Python",30," java pour débutants","blabla",LocalDateTime.of(LocalDate.of(2023,03,12), LocalTime.of(20, 0)));
-   //  fs.ajouter(f1);
+     // Formation f1 = new Formation("Python",30," java pour débutants","blabla",LocalDateTime.of(LocalDate.of(2023,03,12), LocalTime.of(20, 0)));
+     Formation f1 = new Formation("Python", 30, 25, " java pour débutants", "blabla", LocalDateTime.of(LocalDate.of(2023,03,12), LocalTime.of(20, 0)),r1);
+     fs.ajouter(f1);
      
-    // System.out.println(fs.getAll());
+    //System.out.println(fs.getAll());
      //fs.supprimerFormation(5);
     //fs.modifierFormation(f1, "angular" );
-        System.out.println(fs.findById(8));
+       // System.out.println(fs.findById(8));
     
    ParticipationService ps = new ParticipationService ();
-    Participation p = new Participation ("02/13/2023");
+   // Participation p = new Participation ("02/13/2023");
     // ps.ajouter(p);
     //System.out.println(ps.getAll());
     //ps.supprimerParticipation(1);
@@ -56,8 +59,8 @@ public class PidevFreelance {
            boolean isFound = ps.findById(updateId);
            if (isFound  ){ 
            System.out.println("enter date");
-            Participation p2 = new Participation(scanner.nextLine(),updateId);
-           ps.modifierParticipation(p2);
+           // Participation p2 = new Participation(scanner.nextLine(),updateId);
+          // ps.modifierParticipation(p2);
            }
            
         

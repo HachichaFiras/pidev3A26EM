@@ -16,6 +16,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import tn.pidev.entity.Formation;
+import tn.pidev.entity.Participation;
+import tn.pidev.entity.user;
 import tn.pidev.tools.MaConnection;
 
 /**
@@ -32,14 +34,16 @@ public class FormationService implements InterfaceService <Formation>{
     @Override
     public void ajouter(Formation t) {
        try {
-            String sql = "insert into formation(tittre,description,nombreMax,lienMeet,date)"
-                    + "values (?,?,?,?,?)";
+            String sql = "insert into formation(titre,description,lien_meet,nbr_max,nbr_part,date,formateur)"
+                    + "values (?,?,?,?,?,?,?)";
             PreparedStatement ste = cnx.prepareStatement(sql);
             ste.setString(1, t.getTittre());
             ste.setString(2, t.getDescription());
-             ste.setInt(3, t.getNbre_max());
-            ste.setString(4,t.getLien_Meet());
-            ste.setTimestamp(5, Timestamp.valueOf(t.getDate()));
+            ste.setString(3,t.getLien_Meet());
+             ste.setInt(4, t.getNbre_max());
+               ste.setInt(5, t.getNbre_participants());
+            ste.setTimestamp(6, Timestamp.valueOf(t.getDate()));
+            ste.setString(7, t.getFormateur().getNom());
             ste.executeUpdate();
             System.out.println("Formation ajoutée");
         } catch (SQLException ex) {
@@ -55,20 +59,15 @@ public class FormationService implements InterfaceService <Formation>{
             Statement ste = cnx.createStatement();
             ResultSet s = ste.executeQuery(sql);
             while (s.next()) {
-
-             
-                Formation f1 = new Formation(s.getInt(1), s.getString("lienMeet"),   s.getInt("nombreMax"),  s.getString("tittre"), s.getString("lienMeet"),s.getTimestamp("date").toLocalDateTime());
-                
-              
+                Formation f1 = new Formation(s.getString("description"),s.getInt(1), s.getInt(2), s.getString("tittre"), s.getString("lienMeet")
+                        ,s.getTimestamp("date").toLocalDateTime(),new ArrayList<Participation>(),new user(s.getInt(1)) );
                 formations.add(f1);
-
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
         return formations;
     }
-
     @Override
     public boolean findById(int id) {
         boolean isFound = false;
@@ -78,12 +77,10 @@ public class FormationService implements InterfaceService <Formation>{
             Statement ste = cnx.createStatement();
             ResultSet s = ste.executeQuery(sql);
             if (s.next()) {
-                
                 isFound = true;
-                            Formation f1 = new Formation(s.getInt(1), s.getString("lienMeet"),   s.getInt("nombreMax"),  s.getString("tittre"), s.getString("lienMeet"),s.getTimestamp("date").toLocalDateTime());
-
+                Formation f1 = new Formation(s.getString("description"), s.getInt(2), s.getInt(3), s.getString("tittre"), s.getString("lienMeet"), s.getTimestamp("date").toLocalDateTime());
                 formations.add(f1); 
-
+               
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

@@ -11,10 +11,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 import tn.pidev.entity.Formation;
 import tn.pidev.entity.Participation;
+import tn.pidev.entity.user;
 import tn.pidev.tools.MaConnection;
 
 /**
@@ -34,7 +36,7 @@ public class ParticipationService implements InterfaceService <Participation> {
             String sql = "insert into participation(date)"
                     + "values (?)";
             PreparedStatement ste = cnx.prepareStatement(sql);
-                ste.setString(1, t.getDate());
+                ste.setTimestamp(5, Timestamp.valueOf(t.getDate_creation()));
             ste.executeUpdate();
             System.out.println("Participation ajoutée");
         } catch (SQLException ex) {
@@ -51,7 +53,10 @@ public class ParticipationService implements InterfaceService <Participation> {
             ResultSet s = ste.executeQuery(sql);
             while (s.next()) {
 
-                Participation p = new Participation(s.getString("date"),s.getInt(1));
+              //  Participation p = new Participation(s.getTimestamp("date").toLocalDateTime(),s.getClass(),s.getString("formation"));
+              Participation p = new Participation("date").toLocalDateTime(), new user(s.getInt(1)), 
+              new Formation (s.getString("description"),s.getInt(1), s.getInt(2), s.getString("tittre"), s.getString("lienMeet")
+                        ,s.getTimestamp("date").toLocalDateTime(),new ArrayList<Participation>(),new user(s.getInt(1)) ));
                 participations.add(p);
 
             }

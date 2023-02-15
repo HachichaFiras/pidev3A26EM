@@ -6,6 +6,7 @@
 package tn.pidev.entity;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 /**
@@ -16,29 +17,55 @@ public class Formation {
     private int id ;
     private String description;
     private int nbre_max;
+    private int nbre_participants;
     private String tittre;
     private String lien_Meet;
     private LocalDateTime date;
+    List <Participation> participations ;
+    private user formateur ;
 
-    public Formation(int id, String description, int nbre_max, String tittre, String lien_Meet, LocalDateTime date) {
+    public Formation(int id, String description, int nbre_max, int nbre_participants, String tittre, String lien_Meet, LocalDateTime date, List<Participation> participations, user formateur) {
         this.id = id;
         this.description = description;
         this.nbre_max = nbre_max;
+        this.nbre_participants = nbre_participants;
+        this.tittre = tittre;
+        this.lien_Meet = lien_Meet;
+        this.date = date;
+        this.participations = participations;
+        this.formateur = formateur;
+    }
+
+    public Formation(String description, int nbre_max, int nbre_participants, String tittre, String lien_Meet, LocalDateTime date, List<Participation> participations, user formateur) {
+        this.description = description;
+        this.nbre_max = nbre_max;
+        this.nbre_participants = nbre_participants;
+        this.tittre = tittre;
+        this.lien_Meet = lien_Meet;
+        this.date = date;
+        this.participations = participations;
+        this.formateur = formateur;
+    }
+    
+
+    public Formation(String description, int nbre_max, int nbre_participants, String tittre, String lien_Meet, LocalDateTime date) {
+        this.description = description;
+        this.nbre_max = nbre_max;
+        this.nbre_participants = nbre_participants;
         this.tittre = tittre;
         this.lien_Meet = lien_Meet;
         this.date = date;
     }
 
-   
-    public Formation( String description, int nbre_max, String tittre, String lien_Meet, LocalDateTime date) {
-        this.id = id;
+    public Formation(String description, int nbre_max, int nbre_participants, String tittre, String lien_Meet, LocalDateTime date, user formateur) {
         this.description = description;
         this.nbre_max = nbre_max;
+        this.nbre_participants = nbre_participants;
         this.tittre = tittre;
         this.lien_Meet = lien_Meet;
         this.date = date;
+        this.formateur = formateur;
     }
-
     
     public int getId() {
         return id;
@@ -64,6 +91,14 @@ public class Formation {
         this.nbre_max = nbre_max;
     }
 
+    public int getNbre_participants() {
+        return nbre_participants;
+    }
+
+    public void setNbre_participants(int nbre_participants) {
+        this.nbre_participants = nbre_participants;
+    }
+
     public String getTittre() {
         return tittre;
     }
@@ -80,18 +115,38 @@ public class Formation {
         this.lien_Meet = lien_Meet;
     }
 
-    public void setDate(LocalDateTime date) {
-        this.date = date;
-    }
-
     public LocalDateTime getDate() {
         return date;
     }
 
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
+
+    public List<Participation> getParticipations() {
+        return participations;
+    }
+
+    public void setParticipations(List<Participation> participations) {
+        this.participations = participations;
+    }
+
+    public user getFormateur() {
+        return formateur;
+    }
+
+    public void setFormateur(user formateur) {
+        this.formateur = formateur;
+    }
+
     @Override
     public String toString() {
-        return "Formation{" + "id=" + id + ", description=" + description + ", nbre_max=" + nbre_max + ", titre=" + tittre + ", lien_Meet=" + lien_Meet + '}'+"Date:"+this.date;
+        return "Formation{" + "id=" + id + ", description=" + description + ", nbre_max=" + nbre_max + ", nbre_participants=" + nbre_participants + ", tittre=" + tittre + ", lien_Meet=" + lien_Meet + ", date=" + date + ", participations=" + participations + ", formateur=" + formateur + '}';
     }
+
+    
+
+    
     
     
 }

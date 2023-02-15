@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class MaConnection {
     private Connection cnx;
-        String url = "jdbc:mysql://localhost:3306/formation";
+        String url = "jdbc:mysql://localhost:3306/pidevdb";
         String user = "root";
         String pwd = "";
         public static MaConnection ct;
