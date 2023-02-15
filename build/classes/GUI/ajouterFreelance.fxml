@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="GUI.AjouterFreelanceController">
+    <stylesheets>
+        <URL value="@ajouterfreelance.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="79.0" layoutY="130.0" text="Name" />
+      <Label layoutX="79.0" layoutY="191.0" text="Last Name" />
+      <Label layoutX="82.0" layoutY="247.0" text="Password" />
+      <TextField id="name" fx:id="txtName" layoutX="216.0" layoutY="126.0" />
+      <TextField id="last_name" fx:id="txtLastName" layoutX="216.0" layoutY="187.0" />
+      <TextField fx:id="txtPassword" layoutX="216.0" layoutY="243.0" />
+      <Button fx:id="btn" layoutX="264.0" layoutY="300.0" mnemonicParsing="false" onAction="#Ajouter" text="Add" />
+      <Label layoutX="81.0" layoutY="77.0" text="Email" />
+      <TextField fx:id="txtEmail" layoutX="217.0" layoutY="73.0" />
+   </children>
+</AnchorPane>
