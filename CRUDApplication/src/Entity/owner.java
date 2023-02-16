@@ -7,14 +7,13 @@ package Entity;
 
 /**
  *
- * @author Asus
+ * @author FARAH
  */
-public class Freelancer {
-    
+public class owner {
     private int id;
     private String name;
 
-    public Freelancer(int id, String name) {
+    public owner(int id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -29,9 +28,7 @@ public class Freelancer {
 
     @Override
     public String toString() {
-        return "id :"+this.getId() ; //To change body of generated methods, choose Tools | Templates.
+        return "owner{" + "id=" + id + ", name=" + name + '}';
     }
-    
-    
-    
+
 }

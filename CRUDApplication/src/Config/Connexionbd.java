@@ -14,7 +14,7 @@ public class Connexionbd {
     
     
       private   Connection cnx ;
-        String url = "jdbc:mysql://localhost:3306/pidev3a26";
+        String url = "jdbc:mysql://localhost:3306/freelance";
        String user ="root";
   String password ="";
   public static Connexionbd ct;
