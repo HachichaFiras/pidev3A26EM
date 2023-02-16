@@ -9,6 +9,6 @@ package Services;
  *
  * @author medaz
  */
-public class ReclamationService {
+public class InterventionService {
     
 }

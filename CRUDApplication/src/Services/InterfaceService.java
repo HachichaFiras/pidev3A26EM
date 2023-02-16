@@ -3,22 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entity;
+package Services;
+
+import java.util.List;
 
 /**
  *
- * @author Asus
+ * @author medaz
  */
-public class KeyWords {
-    
-    private int id;
-    private String name;
-
-    public KeyWords(String name) {
-    
-        this.name = name;
-    }
-    
-    
+public interface InterfaceService<rap>{
+     public void ajouter(rap r);
+    public List<rap> getAll();
+    public boolean findById(int id);
     
 }

@@ -6,7 +6,9 @@
 package Entity;
 
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -15,15 +17,27 @@ import java.util.Date;
  */
 public class rapport {
     private int id ;
-    private Date date ;
+    private LocalDateTime dateCreation ;
     private String titre ;
     private String description ;
+    private user user ;
+    private int etat ;
 
-    public rapport( Date date, String titre, String description) {
-        
-        this.date = date;
+    public rapport(int id, LocalDateTime dateCreation, String titre, String description, user user, int etat) {
+        this.id = id;
+        this.dateCreation = dateCreation;
         this.titre = titre;
         this.description = description;
+        this.user = user;
+        this.etat = etat;
+    }
+
+    public rapport() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public rapport(LocalDateTime toLocalDateTime, String string, String string0, user user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getId() {
@@ -34,12 +48,12 @@ public class rapport {
         this.id = id;
     }
 
-    public Date getDate() {
-        return date;
+    public LocalDateTime getDateCreation() {
+        return dateCreation;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setDateCreation(LocalDateTime dateCreation) {
+        this.dateCreation = dateCreation;
     }
 
     public String getTitre() {
@@ -58,9 +72,28 @@ public class rapport {
         this.description = description;
     }
 
+    public user getUser() {
+        return user;
+    }
+
+    public void setUser(user user) {
+        this.user = user;
+    }
+
+    public int getEtat() {
+        return etat;
+    }
+
+    public void setEtat(int etat) {
+        this.etat = etat;
+    }
+
+  
+   
+
     @Override
     public String toString() {
-        return "rapport{" + "id=" + id + ", date=" + date + ", titre=" + titre + ", description=" + description + '}';
+        return "rapport{" + "id=" + id + ", dateCreation=" + dateCreation + ", titre=" + titre + ", description=" + description + ", user=" + user + ", etat=" + etat + '}';
     }
     
     
