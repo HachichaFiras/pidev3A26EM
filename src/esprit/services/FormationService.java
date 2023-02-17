@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import esprit.entity.*;
-import tn.pidev.service.InterfaceService;
+import esprit.interfaces.InterfaceService;
 
 /**
  *
@@ -59,7 +59,7 @@ public class FormationService implements InterfaceService <Formation>{
             ResultSet s = ste.executeQuery(sql);
             while (s.next()) {
                 Formation f1 = new Formation(s.getString("description"),s.getInt(1), s.getInt(2), s.getString("tittre"), s.getString("lienMeet")
-                        ,s.getTimestamp("date").toLocalDateTime(),new ArrayList<Participation>(),new user(s.getInt(1)) );
+                        ,s.getTimestamp("date").toLocalDateTime(),new ArrayList<Participation>(),new Utilisateur(s.getInt(1)) );
                 formations.add(f1);
             }
         } catch (SQLException ex) {
@@ -67,7 +67,7 @@ public class FormationService implements InterfaceService <Formation>{
         }
         return formations;
     }
-    @Override
+    
     public boolean findById(int id) {
         boolean isFound = false;
          List<Formation> formations = new ArrayList<>();
@@ -114,7 +114,7 @@ public class FormationService implements InterfaceService <Formation>{
         }
 }
      
-     public void modifierFormation(Formation f) {
+   /*  public void modifierFormation(Formation f) {
        // String sql = "update formation set tittre = ? where id = ?";
         try(PreparedStatement ste = cnx.prepareStatement(QueryUtil.updateFormation(f.getId()));) {
             
@@ -128,5 +128,5 @@ public class FormationService implements InterfaceService <Formation>{
             System.out.println(ex.getMessage());
         }
 
-    }
+    }*/
 }

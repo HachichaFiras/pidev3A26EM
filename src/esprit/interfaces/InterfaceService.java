@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package tn.pidev.service;
+package esprit.interfaces;
 
 import java.util.List;
-import tn.pidev.entity.Formation;
 
 /**
  *

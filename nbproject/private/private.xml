@@ -4,9 +4,16 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/freelanceapplication/FreelanceApplication.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/services/FormationService.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/services/OffreServices.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/interfaces/InterfaceService.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/entity/Offre.java</file>
             <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/entity/Utilisateur.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/entity/Participation.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/entity/Formation.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/services/BlogServices.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/services/CvService.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/entity/CV.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/services/candidatureServices.java</file>
+            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/esprit/services/UserService.java</file>
         </group>
     </open-files>
 </project-private>

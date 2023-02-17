@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import esprit.entity.*;
 import java.time.LocalDateTime;
-import tn.pidev.service.InterfaceService;
+import esprit.interfaces.InterfaceService;
 
 
 /**
@@ -33,11 +33,14 @@ public class ParticipationService implements InterfaceService <Participation> {
      
     @Override
     public void ajouter(Participation t) {
-     try {
-            String sql = "insert into participation(date)"
-                    + "values (?)";
+     
+          try {
+            String sql = "insert into participation(user,DateCreation,formation)"
+                    + "values (?,?,?)";
             PreparedStatement ste = cnx.prepareStatement(sql);
-                ste.setTimestamp(5, Timestamp.valueOf(t.getDate_creation()));
+           ste.setInt(1, t.getUser().getId());
+             ste.setTimestamp(2, Timestamp.valueOf(t.getDate_creation()));
+            ste.setInt(3,t.getFormation().getId());
             ste.executeUpdate();
             System.out.println("Participation ajoutée");
         } catch (SQLException ex) {
@@ -70,8 +73,8 @@ public class ParticipationService implements InterfaceService <Participation> {
         return participations;
     }
 
-    @Override
-    public boolean findById(int id) {
+    
+    public boolean findById(int id, Utilisateur u) {
           boolean isFound = false;
          List<Participation> participations = new ArrayList<>();
           try {
@@ -81,7 +84,8 @@ public class ParticipationService implements InterfaceService <Participation> {
             while (s.next()) {
                 
                 isFound = true;
-                Participation p = new Participation(s.getString("date"),s.getInt(1));
+                Formation f = new Formation(s.getInt("formation.id"),s.getString("description"), 0, 0, s.getString("titre"),s.getString("lien_meet"), s.getTimestamp("date").toLocalDateTime(),null, u);
+                Participation p = new Participation(s.getTimestamp("DateCreation").toLocalDateTime(), u, f);
                 participations.add(p); 
 
             }
@@ -102,10 +106,10 @@ public class ParticipationService implements InterfaceService <Participation> {
         }
 
     }
-       public void modifierParticipation(Participation p) {
+     /*  public void modifierParticipation(Participation p) {
         try(PreparedStatement ste = cnx.prepareStatement(QueryUtil.updateParticipation(p.getId()));) {
             
-            ste.setString(1, p.getDate());
+            ste.setInt(1, p.getId());
             //ste.setInt(1, f.getId());
             int rows = ste.executeUpdate();
             if (rows > 0){
@@ -115,10 +119,15 @@ public class ParticipationService implements InterfaceService <Participation> {
             System.out.println(ex.getMessage());
         }
 
-    }
+    }*/
 
     @Override
     public List<Participation> getAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public boolean findById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
