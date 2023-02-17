@@ -43,7 +43,7 @@ public class RapportServices implements InterfaceService<rapport> {
 
 
             ste.executeUpdate();
-            System.out.println("Formation ajoutée");
+            System.out.println("rapport ajoutée");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }    }
@@ -100,7 +100,7 @@ public class RapportServices implements InterfaceService<rapport> {
 }
     
     public void modifierRapport(rapport r) {
-       // String sql = "update formation set tittre = ? where id = ?";
+       // String sql = "update rapport set tittre = ? where id = ?";
         try(PreparedStatement ste = cnx.prepareStatement(QueryUtil.updateRapport(r.getId()));) {
             
             ste.setString(1, r.getTitre());

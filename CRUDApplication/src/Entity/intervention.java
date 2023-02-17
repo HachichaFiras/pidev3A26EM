@@ -32,6 +32,10 @@ public class intervention {
         this.rap = rap;
     }
 
+    public intervention(LocalDateTime toLocalDateTime, String string, String string0, rapport rapport) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId() {
         return id;
     }
