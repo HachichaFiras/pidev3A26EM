@@ -10,11 +10,12 @@ package esprit.entity;
  * @author ASUS
  */
 public class CV {
-    private int id,id_user;
+    private int id;
     private String git,linkedin,img,bio,cv;
+    private Utilisateur user;
 
-    public CV(int id_user, String git, String linkedin, String img, String bio, String cv) {
-        this.id_user = id_user;
+    public CV(Utilisateur id_user, String git, String linkedin, String img, String bio, String cv) {
+        this.user = id_user;
         this.git = git;
         this.linkedin = linkedin;
         this.img = img;
@@ -22,9 +23,9 @@ public class CV {
         this.cv = cv;
     }
 
-    public CV(int id, int id_user, String git, String linkedin, String img, String bio, String cv) {
+    public CV(int id, Utilisateur id_user, String git, String linkedin, String img, String bio, String cv) {
         this.id = id;
-        this.id_user = id_user;
+        this.user = id_user;
         this.git = git;
         this.linkedin = linkedin;
         this.img = img;
@@ -37,15 +38,15 @@ public class CV {
 
     @Override
     public String toString() {
-        return "CV{" + "id=" + id + ", id_user=" + id_user + ", git=" + git + ", linkedin=" + linkedin + ", img=" + img + ", bio=" + bio + ", cv=" + cv + '}';
+        return "CV{" + "id=" + id + ", id_user=" + user + ", git=" + git + ", linkedin=" + linkedin + ", img=" + img + ", bio=" + bio + ", cv=" + cv + '}';
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public void setId_user(Utilisateur id_user) {
+        this.user = id_user;
     }
 
     public void setGit(String git) {
@@ -72,8 +73,8 @@ public class CV {
         return id;
     }
 
-    public int getId_user() {
-        return id_user;
+    public Utilisateur getId_user() {
+        return user;
     }
 
     public String getGit() {

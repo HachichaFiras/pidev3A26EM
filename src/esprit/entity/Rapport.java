@@ -39,6 +39,10 @@ public class Rapport {
         this.user = user;
         this.etat = etat;
     }
+
+    public Rapport(int id) {
+        this.id=id;
+    }
     
 
     public int getId() {

@@ -32,7 +32,6 @@ public class Formation {
         this.tittre = tittre;
         this.lien_Meet = lien_Meet;
         this.date = date;
-        this.participations = participations;
         this.formateur = formateur;
     }
 
@@ -43,7 +42,6 @@ public class Formation {
         this.tittre = tittre;
         this.lien_Meet = lien_Meet;
         this.date = date;
-        this.participations = participations;
         this.formateur = formateur;
     }
     

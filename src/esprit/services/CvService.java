@@ -33,7 +33,7 @@ public class CvService implements InterfaceService<CV>{
         try{
             String sql = "insert into CV(id_utlisateur,pdf_cv,img,link_github,link_linkedin,bio) values(?,?,?,?,?,?)";
             PreparedStatement ste = cnx.prepareStatement(sql);
-            ste.setInt(1,t.getId_user());
+            ste.setInt(1,t.getId_user().getId());
             ste.setString(2, t.getCv());
             ste.setString(3,t.getImg());
             ste.setString(4,t.getGit());
