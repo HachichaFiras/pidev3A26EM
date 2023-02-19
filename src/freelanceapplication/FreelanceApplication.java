@@ -5,17 +5,23 @@
  */
 package freelanceapplication;
 
+import esprit.entity.Blog;
 import esprit.entity.Candidature;
 import esprit.entity.Formation;
 import esprit.entity.Offre;
 import esprit.entity.Participation;
+import esprit.entity.Rapport;
 import esprit.entity.Utilisateur;
+import esprit.services.BlogServices;
 import esprit.services.FormationService;
+import esprit.services.GenerateKey;
 import esprit.services.OffreServices;
 import esprit.services.ParticipationService;
+import esprit.services.RapportServices;
 import esprit.services.candidatureServices;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 
 /**
  *
@@ -41,13 +47,18 @@ public class FreelanceApplication {
 //      so.supprimerOffre(o);
 Candidature c = new Candidature(0, 1, u, LocalDate.now(), o);
         candidatureServices cs = new candidatureServices();
-        cs.ajouter(c);
+      //  cs.ajouter(c);
 // serv.ajouter(t);
      //  serv.updateFormation(t);
 ParticipationService sc = new ParticipationService();
       //  System.out.println(sc.getAllbyUser(u));
-     
-        
+        Rapport r = new Rapport(LocalDateTime.now(), "titre", "description", u, 0);
+        RapportServices s = new RapportServices();
+        //s.ajouter(r);
+                GenerateKey key = new GenerateKey();
+      
+      //  System.out.println(  String.valueOf(LocalDateTime.now().getYear()).substring(2)+LocalDateTime.now().getDayOfYear()+LocalDateTime.now().getHour()+LocalDateTime.now().getMinute()+LocalDateTime.now().getSecond());
+        System.out.println(key.generate());
         
     }
     

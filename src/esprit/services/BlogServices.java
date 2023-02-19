@@ -42,15 +42,33 @@ public class BlogServices implements CrudInterface<Blog>{
     @Override
     public void ajouter(Blog t) {
            try {
-            String sql = "insert into Blog(Title,contenue,dateCreation,actor) values (?,?,?,?)";
+               
+               
+               
+            String sql = "insert into Blog(id,Title,contenue,dateCreation,actor) values (?,?,?,?,?) ";
+            
+            
                  Timestamp timestamp = Timestamp.valueOf(t.getDateCreation());
             PreparedStatement stmt = cnx.prepareStatement(sql);
-            stmt.setString(1,t.getTitle());
-            stmt.setString(2, t.getContenu());
-            stmt.setTimestamp(3, timestamp);
-            stmt.setInt(4, t.getActor().getId());
-         
+            stmt.setString(2,t.getTitle());
+            stmt.setString(3, t.getContenu());
+            stmt.setTimestamp(4, timestamp);
+            stmt.setInt(5, t.getActor().getId());
+            stmt.setInt(1, t.getId());
+
             stmt.executeUpdate();
+            for(KeyWords k :   t.getKeywords())
+            {
+                   String sql2 = "insert into keyblog(blog,keyword) values (?,?) ";
+            
+            PreparedStatement stmt2 = cnx.prepareStatement(sql2);
+
+            stmt2.setInt(1,t.getId());
+            stmt2.setInt(2,k.getId());
+
+            stmt2.executeUpdate();
+            
+            }
             System.out.println("Blog Ajoutee avec success");
             
             
@@ -60,22 +78,25 @@ public class BlogServices implements CrudInterface<Blog>{
         
         
     }
-
+    
     @Override
     public List<Blog> getAll() {
    
         List<Blog> all = new ArrayList<>();
         Statement stmt;
         try {
-            String sql = "select * from blog";
+            String sql = "select * from blog join utilisateur on blog.actor = utilisateur.id";
             
           stmt = cnx.createStatement();
             
                ResultSet rs =  stmt.executeQuery(sql);
                 
                 while(rs.next()){
-                    Blog b = new Blog(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getTimestamp(4).toLocalDateTime(), new Utilisateur(rs.getInt(5), "name") );
-                all.add(b);                   
+                    Blog b = new Blog(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getTimestamp(4).toLocalDateTime(), new Utilisateur(rs.getInt("utilisateur.id"),rs.getString("nom")+"  "+rs.getNString("prenom")) );
+                
+                    
+                    
+                    all.add(b);                   
                 }
                 return all;
                     
@@ -93,7 +114,7 @@ public class BlogServices implements CrudInterface<Blog>{
         Statement stmt;
         CommentaireServices serv = new CommentaireServices();
         try {
-            String sql = "select * from blog where id = "+id;
+            String sql = "select * from blog join utilisateur on blog.actor = utilisateur.id where id = "+id;
             
           stmt = cnx.createStatement();
             
@@ -112,14 +133,16 @@ public class BlogServices implements CrudInterface<Blog>{
         return b;
     }
 
-    public List<Blog> findByUser(int id) {
+    
+  
+    public List<Blog> findByKeyword(int id) {
 
      List<Blog> all = new ArrayList<>();
    Blog b=null;
         Statement stmt;
         CommentaireServices serv = new CommentaireServices();
         try {
-            String sql = "select * from blog where actor = "+id;
+            String sql = "select * from blog join keyblog on blog.id = keyblog.blog join utilisateur on utilisateur.id = blog.actor where keyblog.keyword =  "+id;
             
           stmt = cnx.createStatement();
             
@@ -127,7 +150,7 @@ public class BlogServices implements CrudInterface<Blog>{
                 
                 while(rs.next()){
 
-                    b = new Blog(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getTimestamp(4).toLocalDateTime(), new Utilisateur(rs.getInt(5), "name"));                    
+                     b = new Blog(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getTimestamp(4).toLocalDateTime(), new Utilisateur(rs.getInt("utilisateur.id"),rs.getString("nom")+"  "+rs.getNString("prenom")) );
                     all.add(b);
                 }
                 return all;

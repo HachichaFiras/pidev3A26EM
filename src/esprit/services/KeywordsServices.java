@@ -84,6 +84,32 @@ public class KeywordsServices  implements CrudInterface<KeyWords>{
         
     }
 
+    public List<KeyWords> getAllByBlog(Blog b) {
+        
+           List<KeyWords> all = new ArrayList<>();
+        Statement stmt;
+        try {
+            String sql = "select * from keywords join keyblog on keywords.id = keyblog.keyword where keyblog.blog = "+b.getId();
+            
+          stmt = cnx.createStatement();
+            
+               ResultSet rs =  stmt.executeQuery(sql);
+                
+                while(rs.next()){
+                    KeyWords k = new KeyWords(rs.getInt("id"), rs.getString("name"));
+
+                    all.add(k);
+                    
+                }
+                return all;
+                    
+            
+        } catch (SQLException ex) {
+               System.out.println(ex.getMessage());
+        }
+        return all;
+        
+    }
     @Override
     public KeyWords findById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

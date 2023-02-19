@@ -34,7 +34,7 @@ public class RapportServices implements InterfaceService<Rapport> {
     @Override
     public void ajouter(Rapport r) {
         try {
-            String sql = "insert into rapport(dateCreation,titre,description,user,etats)"
+            String sql = "insert into rapport(dateCreation,titre,description,user,etat  )"
                     + "values (?,?,?,?,?)";
             PreparedStatement ste = cnx.prepareStatement(sql);
             ste.setTimestamp(1, Timestamp.valueOf(r.getDateCreation()));
