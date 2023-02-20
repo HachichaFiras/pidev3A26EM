@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="903.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.MesBlogsController">
+   <children>
+      <TableView fx:id="list_blog" layoutX="225.0" layoutY="91.0" onSort="#handler" prefHeight="428.0" prefWidth="642.0" />
+      <MenuButton fx:id="btn_key" layoutX="758.0" layoutY="40.0" mnemonicParsing="false" onAction="#handler" text="Keyworks">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
+      </MenuButton>
+   </children>
+</AnchorPane>

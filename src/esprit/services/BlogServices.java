@@ -85,7 +85,7 @@ public class BlogServices implements CrudInterface<Blog>{
         List<Blog> all = new ArrayList<>();
         Statement stmt;
         try {
-            String sql = "select * from blog join utilisateur on blog.actor = utilisateur.id";
+            String sql = "select * from blog join utilisateur on blog.actor = utilisateur.id where hidden = 0";
             
           stmt = cnx.createStatement();
             
@@ -107,6 +107,60 @@ public class BlogServices implements CrudInterface<Blog>{
         return all;
             }
 
+    
+      public List<Blog> getAllByUser(Utilisateur u) {
+   
+        List<Blog> all = new ArrayList<>();
+        Statement stmt;
+        try {
+            String sql = "select * from blog join utilisateur on blog.actor = utilisateur.id where utilisateur.id = "+u.getId();
+            
+          stmt = cnx.createStatement();
+            
+               ResultSet rs =  stmt.executeQuery(sql);
+                
+                while(rs.next()){
+                    Blog b = new Blog(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getTimestamp(4).toLocalDateTime(), new Utilisateur(rs.getInt("utilisateur.id"),rs.getString("nom")+"  "+rs.getNString("prenom")) );
+                
+                    
+                    
+                    all.add(b);                   
+                }
+                return all;
+                    
+            
+        } catch (SQLException ex) {
+               System.out.println(ex.getMessage());
+        }
+        return all;
+            }
+    
+    
+    public int getNumber() {
+
+   Blog b=null ;
+        Statement stmt;
+        CommentaireServices serv = new CommentaireServices();
+        try {
+            String sql = "select count(*)from blog ";
+            
+          stmt = cnx.createStatement();
+            
+               ResultSet rs =  stmt.executeQuery(sql);
+                
+                if(rs.next()){
+
+                }
+                return rs.getInt(1);
+                    
+            
+        } catch (SQLException ex) {
+               System.out.println(ex.getMessage());
+        }
+        return 0;
+    }
+
+    
     @Override
     public Blog findById(int id) {
 

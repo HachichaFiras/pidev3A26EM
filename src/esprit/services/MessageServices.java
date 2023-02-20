@@ -35,7 +35,7 @@ public class MessageServices implements CrudInterface<Message>{
     @Override
     public void ajouter(Message t) {
        try {
-            String sql = "insert into message(source,dest,date,contenu) values (?,?,?,?)";
+            String sql = "insert into message(source,dest,dateCreation,contenu) values (?,?,?,?)";
                  Timestamp timestamp = Timestamp.  valueOf(t.getDate());
             PreparedStatement stmt = cnx.prepareStatement(sql);
             stmt.setInt(1,t.getSource().getId());
@@ -80,7 +80,7 @@ public class MessageServices implements CrudInterface<Message>{
    List<Utilisateur> all = new ArrayList<>();
       
         try {
-            String sql = "Select * from (SELEct DISTINCT source from message where dest = ? union SELEct DISTINCT dest from message where source = ?) t1 join (select * from personne ) t2 on (t2.id = t1.source)";
+            String sql = "Select * from (SELEct DISTINCT source from message where dest = ? union SELEct DISTINCT dest from message where source = ?) t1 join (select * from utilisateur ) t2 on (t2.id = t1.source)";
             
            PreparedStatement stmt = cnx.prepareStatement(sql);
             stmt.setInt(1,p.getId());
@@ -92,7 +92,7 @@ public class MessageServices implements CrudInterface<Message>{
                 
                 while(rs.next()){
                     
-                    Utilisateur f = new Utilisateur(rs.getInt("id"),rs.getString("nom") );
+                    Utilisateur f = new Utilisateur(rs.getInt("id"),rs.getString("nom") + " " +rs.getString("prenom") );
                     
                 all.add(f);
                 }

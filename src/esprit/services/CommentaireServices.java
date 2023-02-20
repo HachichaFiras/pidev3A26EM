@@ -55,14 +55,14 @@ List<Comments> all = new ArrayList<>();
 Comments c = null;
         Statement stmt;
         try {
-            String sql = "SELECT * FROM commentaire join personne on(personne.id = commentaire.user) WHERE blog = "+b.getId()+" order by creationDate;";
+            String sql = "SELECT * FROM commentaire join utilisateur on(utilisateur.id = commentaire.user) WHERE blog = "+b.getId()+" order by creationDate;";
             
           stmt = cnx.createStatement();
             
                ResultSet rs =  stmt.executeQuery(sql);
                 
                 while(rs.next()){
-                    c = new Comments(new Utilisateur(rs.getInt(6),rs.getString("prenom") ),rs.getString("contenu") , rs.getTimestamp("creationDate").toLocalDateTime(), b);
+                    c = new Comments(new Utilisateur(rs.getInt(6),rs.getString("nom")+" "+ rs.getString("prenom")),rs.getString("contenu") , rs.getTimestamp("creationDate").toLocalDateTime(), b);
 all.add(c);
                 }
                 return all;

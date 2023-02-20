@@ -5,6 +5,7 @@
  */
 package gui;
 
+import esprit.entity.Utilisateur;
 import java.awt.Dimension;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,14 +25,15 @@ import javafx.stage.Stage;
  * @author Asus
  */
 public class NewFXMain extends Application {
-    
-    @Override
+  public  static Utilisateur user = new Utilisateur(5, 2, 1, 22333333,"Hachicha", "FIRAS", "@mail", "Firas", "firas", "sfax");
+
+            @Override
     public void start(Stage primaryStage) {
      Parent root;
         try {
            	Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 	
-            
+//            
             root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
               Scene scene = new Scene(root,1200,600);
      
@@ -52,7 +54,7 @@ public class NewFXMain extends Application {
 
         }
         
-    }
+    } 
 
     /**
      * @param args the command line arguments
