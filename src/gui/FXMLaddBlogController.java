@@ -1,20 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gui;
 
 import esprit.entity.Blog;
 import esprit.entity.KeyWords;
+import esprit.services.Api;
 import esprit.services.BlogServices;
 import esprit.services.KeywordsServices;
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -29,6 +29,7 @@ import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -60,6 +61,9 @@ public class FXMLaddBlogController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        txt_id.setVisible(false);
+        
+    
         
      KeywordsServices ks = new KeywordsServices();
       final List<CheckMenuItem> items = new ArrayList<>();
@@ -68,8 +72,10 @@ for(KeyWords k : ks.getAll())
     CheckMenuItem mm = new CheckMenuItem(k.getName());
     mm.setId(k.getId()+"");
     items.add(mm);
-}
-                                          
+}BlogServices bs = new BlogServices();
+
+                           txt_id.setText((bs.getNumber()+1)+"");
+                               
      menu_btn.getItems().addAll(items);
  
       for (final CheckMenuItem item : items) {
@@ -81,7 +87,11 @@ for(KeyWords k : ks.getAll())
             }
          });
       }
+      
+      
+      
     }    
+    
 
     @FXML
     private void submitAdd(ActionEvent event) {
@@ -95,9 +105,9 @@ selectedItems.getItems().forEach((t) -> {
 if(txt_titre.getText()==null|| txt_contenu.getText()==null ||txt_titre.getText().isEmpty()|| txt_contenu.getText().isEmpty())
 {
     Alert alert = new Alert(Alert.AlertType.INFORMATION.INFORMATION);
-		alert.setTitle("Test Connection");
+		alert.setTitle("Erruer");
 		alert.setHeaderText("Results:");
-		alert.setContentText("Connect to the database successfully!");
+		alert.setContentText("Veillez sasir tous les champs");
 
 		alert.showAndWait();
 }
@@ -107,8 +117,17 @@ BlogServices bs = new BlogServices();
   System.out.println(key);
               
         
-Blog b = new Blog((bs.getNumber()+1), txt_titre.getText(), txt_contenu.getText(), LocalDateTime.now(),NewFXMain.user,null, allk);
+Blog b = new Blog(Integer.parseInt(txt_id.getText()), txt_titre.getText(), txt_contenu.getText(), LocalDateTime.now(),NewFXMain.user,null, allk);
 bs.ajouter(b);
+
+  Alert alert = new Alert(Alert.AlertType.INFORMATION.INFORMATION);
+		alert.setTitle("Succes");
+		alert.setHeaderText("Results:");
+		alert.setContentText("Blog added successfully!");
+
+		alert.showAndWait();
+
+
 }
     }
 
@@ -125,8 +144,43 @@ bs.ajouter(b);
 		alert.showAndWait();
 }
 else{
-          KeywordsServices serv = new KeywordsServices();
+            
+            Api api = new Api();
+            try {
+                if(api.POSTReq(txt_key.getText()) == 1)
+                {
+                     KeywordsServices serv = new KeywordsServices();
           serv.ajouter(new KeyWords(txt_key.getText()));
+           Alert alert = new Alert(Alert.AlertType.INFORMATION.INFORMATION);
+		alert.setTitle("Succes");
+		alert.setHeaderText("Results:");
+		alert.setContentText("KEyword ajoutèe avec success!");
+
+		alert.showAndWait();
+                
+               
+                
+                }
+                else{
+                      
+           Alert alert = new Alert(Alert.AlertType.INFORMATION.INFORMATION);
+		alert.setTitle("Erreur");
+		alert.setHeaderText("Results:");
+		alert.setContentText("KEyword n'est pas conforme aux regles de l'application ");
+
+		alert.showAndWait();
+                }
+                    
+                
+            } catch (IOException ex) {
+                Logger.getLogger(FXMLaddBlogController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+       
+                
+                
+               
+
+
     }
     }
     

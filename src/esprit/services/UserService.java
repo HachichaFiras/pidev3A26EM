@@ -101,7 +101,7 @@ public class UserService implements InterfaceService<Utilisateur>{
             ResultSet s = ste.executeQuery(sql);
             while (s.next()) {
 
-               Utilisateur f = new Utilisateur(s.getInt("id"),s.getInt("role"), s.getInt("domaine"), s.getInt("numTel"),s.getString("nom"),s.getString("email"), s.getString("password"), s.getString("prenom"), s.getString("login"), s.getString("adresse"));
+               Utilisateur f = new Utilisateur(s.getInt("id"),s.getInt("role"), 0, s.getInt("numTel"),s.getString("nom"),s.getString("email"), s.getString("password"), s.getString("prenom"), s.getString("login"), s.getString("adresse"));
                users.add(f);
           
 

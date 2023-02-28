@@ -37,6 +37,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -61,6 +62,16 @@ public class FXMLController implements Initializable {
     private Text txt_wlc;
     @FXML
     private Button btn_msg;
+    @FXML
+    private Button btn_all;
+    @FXML
+    private Button btn_mine;
+    @FXML
+    private AnchorPane root1;
+    @FXML
+    private Text username;
+    @FXML
+    private Text role;
 
     /**
      * Initializes the controller class.
@@ -126,6 +137,14 @@ public class FXMLController implements Initializable {
     private void ajouterBlog(ActionEvent event) {
         
            try {
+               
+               btn_ajouter.setStyle("-fx-background-color: MediumSeaGreen");
+                              btn_cvr.setStyle("-fx-background-color:  #330000");
+               btn_msg.setStyle("-fx-background-color:  #330000");
+           btn_all.setStyle("-fx-background-color:  #330000");
+                      btn_mine.setStyle("-fx-background-color: #330000");
+
+
             fxml = FXMLLoader.load(getClass().getResource("FXMLaddBlog.fxml"));
             root.getChildren().removeAll();
             root.getChildren().setAll(fxml);
@@ -141,7 +160,13 @@ public class FXMLController implements Initializable {
     private void conversation(ActionEvent event) {
         
            try {
-            fxml = FXMLLoader.load(getClass().getResource("conversation.fxml"));
+               
+   btn_ajouter.setStyle("-fx-background-color: #330000");
+                              btn_cvr.setStyle("-fx-background-color:  MediumSeaGreen");
+               btn_msg.setStyle("-fx-background-color:  #330000");
+           btn_all.setStyle("-fx-background-color:  #330000");
+                      btn_mine.setStyle("-fx-background-color: #330000");     
+                      fxml = FXMLLoader.load(getClass().getResource("conversation.fxml"));
             root.getChildren().removeAll();
             root.getChildren().setAll(fxml);
         } catch (IOException e) {
@@ -158,7 +183,12 @@ public class FXMLController implements Initializable {
     @FXML
     private void Allblog(ActionEvent event) {
        try {
-            fxml = FXMLLoader.load(getClass().getResource("ConsulterBlog.fxml"));
+            btn_ajouter.setStyle("-fx-background-color: #330000");
+                              btn_cvr.setStyle("-fx-background-color: #330000");
+               btn_msg.setStyle("-fx-background-color:  #330000");
+                      btn_mine.setStyle("-fx-background-color: #330000");     
+           btn_all.setStyle("-fx-background-color: MediumSeaGreen");
+            fxml = FXMLLoader.load(getClass().getResource("FrontBlog.fxml"));
             root.getChildren().removeAll();
             root.getChildren().setAll(fxml);
         } catch (IOException e) {
@@ -169,6 +199,13 @@ public class FXMLController implements Initializable {
     @FXML
     private void mesBlogs(ActionEvent event) {
          try {
+             
+                btn_ajouter.setStyle("-fx-background-color: #330000");
+                              btn_cvr.setStyle("-fx-background-color: #330000");
+               btn_msg.setStyle("-fx-background-color:  #330000");
+           btn_all.setStyle("-fx-background-color:  #330000");
+             
+             btn_mine.setStyle("-fx-background-color: MediumSeaGreen");
             fxml = FXMLLoader.load(getClass().getResource("MesBlogs.fxml"));
             root.getChildren().removeAll();
             root.getChildren().setAll(fxml);
@@ -179,7 +216,27 @@ public class FXMLController implements Initializable {
     }
 
     @FXML
-    private void ecrireMessage(ActionEvent event) {
+    private void EnvoyerMessage(ActionEvent event) {
+        
+          try {
+         
+                   btn_ajouter.setStyle("-fx-background-color: #330000");
+                              btn_cvr.setStyle("-fx-background-color: #330000");
+           btn_all.setStyle("-fx-background-color:  #330000");
+             
+             btn_mine.setStyle("-fx-background-color: #330000");
+              btn_msg.setStyle("-fx-background-color: MediumSeaGreen");
+            fxml = FXMLLoader.load(getClass().getResource("EnvoyerMessage.fxml"));
+            root.getChildren().removeAll();
+            root.getChildren().setAll(fxml);
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void stats(ActionEvent event) {
+        
     }
 
    

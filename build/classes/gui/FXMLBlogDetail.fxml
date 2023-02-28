@@ -13,8 +13,6 @@
         <URL value="@fxmlblogdetail.css" />
     </stylesheets>
    <children>
-      <Text layoutX="55.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id :" AnchorPane.bottomAnchor="352.98828125" AnchorPane.leftAnchor="55.0" AnchorPane.rightAnchor="529.87890625" AnchorPane.topAnchor="31.05078125" />
-      <Text fx:id="txt_id" layoutX="98.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="idb" wrappingWidth="55.02734375" AnchorPane.bottomAnchor="353.0390625" AnchorPane.leftAnchor="98.0" AnchorPane.rightAnchor="448.0" AnchorPane.topAnchor="31.0" />
       <Text layoutX="52.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre :" />
       <Text fx:id="txt_titre" layoutX="98.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="txt_titre" />
       <Text layoutX="45.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Keywords : " />

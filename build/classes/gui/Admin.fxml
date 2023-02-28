@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="522.0" prefWidth="748.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.AdminController">
+   <children>
+      <AnchorPane fx:id="root" layoutX="148.0" prefHeight="522.0" prefWidth="689.0" style="-fx-background-color: #f2ffe6;">
+         <children>
+            <AnchorPane layoutX="-3.0" prefHeight="50.0" prefWidth="694.0" style="-fx-background-color: #ff6666;">
+               <children>
+                  <Text fill="WHITE" fontSmoothingType="LCD" layoutX="267.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Administrateur">
+                     <font>
+                        <Font name="Bell MT" size="31.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="444.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                     <font>
+                        <Font name="Lucida Handwriting Italic" size="34.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="626.0" layoutY="15.0" mnemonicParsing="false" onAction="#stats" style="-fx-background-color: white;" text="Logout" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <VBox prefHeight="522.0" prefWidth="146.0">
+         <children>
+            <AnchorPane prefHeight="117.0" prefWidth="146.0">
+               <children>
+                  <AnchorPane fx:id="root1" layoutY="-1.0" prefHeight="119.0" prefWidth="146.0" style="-fx-border-color: red;">
+                     <children>
+                        <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="14.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@1200px-User_icon-cp.svg.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <Button fx:id="btn_sts" mnemonicParsing="false" onAction="#statistiques" prefHeight="81.0" prefWidth="146.0" style="-fx-background-color: #330000; -fx-border-color: white;" text="Statistiques" textFill="WHITE" />
+            <Button fx:id="btn_mine" mnemonicParsing="false" onAction="#blogs" prefHeight="81.0" prefWidth="146.0" style="-fx-background-color: #330000; -fx-border-color: white;" text="Blogs" textFill="WHITE" />
+            <Button fx:id="btn_ajouter" mnemonicParsing="false" onAction="#conversation" prefHeight="81.0" prefWidth="146.0" style="-fx-background-color: #330000; -fx-border-color: white;" text="Conversation" textFill="WHITE" />
+            <Button fx:id="btn_cvr" mnemonicParsing="false" onAction="#rapport" prefHeight="81.0" prefWidth="146.0" style="-fx-background-color: #330000; -fx-border-color: white;" text="Rapport" textFill="WHITE" />
+            <Button fx:id="btn_msg" mnemonicParsing="false" onAction="#intervention" prefHeight="81.0" prefWidth="146.0" style="-fx-background-color: #330000; -fx-border-color: white;" text="Intervention" textFill="WHITE" />
+         </children></VBox>
+   </children>
+</AnchorPane>

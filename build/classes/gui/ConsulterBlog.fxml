@@ -7,8 +7,11 @@
 
 <AnchorPane fx:id="root" prefHeight="528.0" prefWidth="724.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.ConsulterBlogController">
    <children>
-      <MenuButton fx:id="btn_key" layoutX="612.0" layoutY="43.0" mnemonicParsing="false" onAction="#handler" text="Keyworks">
-      
+      <MenuButton fx:id="btn_key" layoutX="594.0" layoutY="29.0" mnemonicParsing="false" onAction="#handler" text="Keyworks">
+         <items>
+            <MenuItem mnemonicParsing="false" text="Action 1" />
+            <MenuItem mnemonicParsing="false" text="Action 2" />
+         </items>
       </MenuButton>
       <TableView fx:id="list_blog" layoutX="211.0" layoutY="121.0" onSort="#handler" prefHeight="260.0" prefWidth="491.0" AnchorPane.bottomAnchor="147.0" AnchorPane.leftAnchor="211.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="121.0" />
    </children>

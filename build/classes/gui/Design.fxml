@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="909.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.DesignController">
+   <children>
+      <VBox prefHeight="630.0" prefWidth="204.0" style="-fx-background-color: white; -fx-border-color: red;">
+         <children>
+            <AnchorPane fx:id="root" prefHeight="130.0" prefWidth="177.0" style="-fx-border-color: red;">
+               <children>
+                  <ImageView fitHeight="38.0" fitWidth="34.0" layoutX="14.0" layoutY="41.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@1200px-User_icon-cp.svg.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="username" layoutX="58.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+                     <font>
+                        <Font name="Berlin Sans FB" size="15.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="role" layoutX="58.0" layoutY="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Role">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Text>
+               </children>
+            </AnchorPane>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="204.0" style="-fx-background-color: white; -fx-border-color: red;" text="Home" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua" size="23.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="204.0" style="-fx-background-color: white;" text="Candidatures" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua" size="23.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="204.0" style="-fx-background-color: white;" text="Formations" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua" size="23.0" />
+               </font>
+            </Button>
+            <Button fx:id="blog" mnemonicParsing="false" onAction="#blog" prefHeight="62.0" prefWidth="204.0" style="-fx-background-color: white;" text="Blogs" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua" size="23.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="204.0" style="-fx-background-color: white;" text="Messages" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua" size="23.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="204.0" style="-fx-background-color: white;" text="Profile" textFill="RED">
+               <font>
+                  <Font name="Book Antiqua" size="23.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <AnchorPane layoutX="204.0" prefHeight="56.0" prefWidth="728.0" style="-fx-background-color: #ff6666;">
+         <children>
+            <Text fill="WHITE" fontSmoothingType="LCD" layoutX="305.0" layoutY="41.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Freelanci">
+               <font>
+                  <Font name="Bell MT" size="31.0" />
+               </font>
+            </Text>
+            <Text layoutX="444.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0">
+               <font>
+                  <Font name="Lucida Handwriting Italic" size="34.0" />
+               </font>
+            </Text>
+            <Button layoutX="626.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-color: white;" text="Logout" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

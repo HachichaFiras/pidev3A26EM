@@ -16,7 +16,7 @@ public class Utilisateur {
 
     @Override
     public String toString() {
-        return "Utilisateur{" + "id=" + id + ", role=" + role + ", domaine=" + domaine + ", nom=" + nom + ", email=" + email + ", password=" + password + ", prenom=" + prenom + ", login=" + login + ", numTel=" + numTel + ", adresse=" + adresse + '}';
+        return this.getNom();
     }
 
     public Utilisateur(int role, int domaine, String nom, String email, String password, String prenom, String login, int numTel, String adresse) {

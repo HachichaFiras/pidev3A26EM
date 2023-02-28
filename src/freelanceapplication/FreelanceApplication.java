@@ -59,6 +59,9 @@ ParticipationService sc = new ParticipationService();
       
       //  System.out.println(  String.valueOf(LocalDateTime.now().getYear()).substring(2)+LocalDateTime.now().getDayOfYear()+LocalDateTime.now().getHour()+LocalDateTime.now().getMinute()+LocalDateTime.now().getSecond());
         System.out.println(key.generate());
+        Blog b = new Blog(2, "title", "contenu", LocalDateTime.now(), u);
+        BlogServices bs = new BlogServices();
+        bs.update(b);
         
     }
     

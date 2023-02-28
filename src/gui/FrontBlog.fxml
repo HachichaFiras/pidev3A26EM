@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="571.0" prefWidth="782.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FrontBlogController">
+    <stylesheets>
+        <URL value="@frontblog.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane fx:id="pane" layoutX="171.0" layoutY="52.0" prefHeight="467.0" prefWidth="541.0" />
+      <ScrollPane fx:id="scroll" layoutX="170.0" prefHeight="571.2" prefWidth="782.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+   </children>
+</AnchorPane>

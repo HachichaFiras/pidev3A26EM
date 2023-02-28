@@ -137,13 +137,13 @@ TableColumn<Blog, Hyperlink> column1 =
 
         }
        
-      TableColumn<Blog, Blog> unfriendCol = new TableColumn<>("View");
+      TableColumn<Blog, Blog> unfriendCol = new TableColumn<>("Modifier");
 unfriendCol.setCellValueFactory(
     param -> new ReadOnlyObjectWrapper<>(param.getValue())
 );
 
 unfriendCol.setCellFactory(param -> new TableCell<Blog, Blog>() {
-    private final Button deleteButton = new Button("view");
+    private final Button deleteButton = new Button("Modifier");
 
     @Override
     protected void updateItem(Blog person, boolean empty) {

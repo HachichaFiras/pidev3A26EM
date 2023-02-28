@@ -66,7 +66,6 @@ public class ConsulterBlogController implements Initializable {
 
       // To Creating a Observable List
 
-        BlogServices servb = new BlogServices();
 
 
 
@@ -91,12 +90,7 @@ public class ConsulterBlogController implements Initializable {
                
         
         
-
-        
-        
-        
-        
-        
+     
         
 KeywordsServices ks = new KeywordsServices();
         
@@ -159,7 +153,7 @@ unfriendCol.setCellFactory(param -> new TableCell<Blog, Blog>() {
             secController.display(person);
 
             Stage stage=new Stage();
-              stage.setTitle("New fruit dialog");
+              stage.setTitle("Blog");
               
             stage.setScene(new Scene(root));
             stage.show();         

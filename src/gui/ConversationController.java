@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gui;
 
 import esprit.entity.Blog;
@@ -26,6 +22,7 @@ import javafx.scene.layout.VBox;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -54,12 +51,13 @@ public class ConversationController implements Initializable {
     @FXML
     private Button btn_envoyer;
     private Utilisateur destinataire = new Utilisateur(-1);
-
+private int iduser = -1; 
+private String nameuser="";
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+        public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
         MessageServices s = new MessageServices();
@@ -83,20 +81,54 @@ public class ConversationController implements Initializable {
                                  menu.forEach((t) -> {
 
                  t.setOnAction((event) -> {
-                     
                      handler(event);
                  });
              });
                               
                           
                           
-                          
+                  btn_envoyer.setOnAction((event) -> {
+                      envoyer(event);
+                      refresh();
+
+                      
+                  });
+                  
                           
 
 
       
     }    
 
+        
+        private void refresh(){
+            if(iduser!=-1)
+            {
+                  list_message.getItems().clear();
+                  MessageServices ms = new MessageServices();
+                  Utilisateur u = NewFXMain.user;
+                  u.setNom("Vous");
+  List<Message> messages = new ArrayList<>(ms.getAllByuser(u, new Utilisateur(iduser,nameuser)));
+  
+ destinataire.setId(iduser);
+        System.out.println(destinataire.getId());
+        for(Message b: messages)
+        {
+             
+                list_message.getItems().add(b.getDate()+"\n- "+b.getSource().getNom()+"  :  "+b.getContenu());
+
+        }
+
+            }
+            
+            
+          
+                  
+
+
+            
+        }
+        
     @FXML
     private void handler(ActionEvent event) {
         
@@ -109,6 +141,8 @@ MessageServices ms = new MessageServices();
         btn_menu.setText(item.getText());
 
 Utilisateur u = NewFXMain.user;
+iduser=Integer.parseInt(item.getId());
+nameuser= item.getText();
 u.setNom("Vous");
   List<Message> messages = new ArrayList<>(ms.getAllByuser(u, new Utilisateur(Integer.parseInt(item.getId()),item.getText())));
         
@@ -151,8 +185,7 @@ u.setNom("Vous");
                  Message m = new Message(NewFXMain.user, destinataire, LocalDateTime.now(), txt_message.getText());
              MessageServices ms = new MessageServices();
              ms.ajouter(m);
-             txt_message.clear();
-                    
+             txt_message.clear();           
              
            }
            
