@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -93,6 +95,11 @@ private String nameuser="";
 
                       
                   });
+                  
+                 list_message.setOnMouseMoved((event) -> {
+                                          refresh();
+                 });
+                  
                   
                           
 
@@ -195,6 +202,15 @@ u.setNom("Vous");
         
 //  Message m = new Message(NewFXMain.user, new Utilisateur(Integer.parseInt(btn_menu.getId())), LocalDateTime.MAX, contenu)
         
+    }
+    
+    public synchronized void sync(){
+        try {
+            wait(100);
+            refresh();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(ConversationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

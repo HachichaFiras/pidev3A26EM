@@ -161,6 +161,25 @@ public class UserService implements InterfaceService<Utilisateur>{
 
  
 
+    public Utilisateur findByid(int id) {
+   try {
+            String sql = "select * from utilisateur where id="+id;
+            Statement ste = cnx.createStatement();
+            ResultSet s = ste.executeQuery(sql);
+            if (s.next()) {
+
+               Utilisateur f = new Utilisateur(s.getInt("id"),s.getInt("role"), 0, s.getInt("numTel"),s.getString("nom"),s.getString("email"), s.getString("password"), s.getString("prenom"), s.getString("login"), s.getString("adresse"));
+          return f;
+
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
+
+
+    }
+
     @Override
     public boolean findById(int id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

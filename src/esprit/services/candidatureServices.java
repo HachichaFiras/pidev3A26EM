@@ -5,9 +5,10 @@
  */
 package esprit.services;
 
-import esprit.interfaces.*;
+import esprit.entity.*;
 import esprit.entity.*;
 import esprit.cnx.*;
+import esprit.interfaces.CrudInterface;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -28,7 +29,7 @@ public class candidatureServices implements CrudInterface<Candidature> {
         
             cnx = MaConnection.getInstance().getCnx();
     }
-       public void ajouter(Candidature c) {
+       public void ajouter(Candidature  c) {
         try {
             String sql = "insert into candidature(etat,offre,freelancer,dateCreation)"
                     + "values (?,?,?,?)";

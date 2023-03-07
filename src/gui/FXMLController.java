@@ -78,8 +78,20 @@ public class FXMLController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        username.setText(NewFXMain.user.getNom() + " "+NewFXMain.user.getPrenom());
     
    txt_wlc.setText("Bienvenu de nouveau \n"+NewFXMain.user.getNom()+" "+NewFXMain.user.getPrenom());
+   
+       HashMap<Integer, String> roles= new HashMap<Integer, String>();
+       roles.put(1, "Administrateur");
+                     roles.put(2, "Freelancer");
+
+              roles.put(3, "Business Owner");
+              role.setText(roles.get(NewFXMain.user.getRole()));
+
+       
+
 
     }    
 

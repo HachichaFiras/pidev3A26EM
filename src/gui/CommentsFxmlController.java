@@ -23,6 +23,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
@@ -40,6 +41,8 @@ public class CommentsFxmlController implements Initializable {
     private Button commenter;
 
     Blog blog = null;
+    @FXML
+    private PasswordField txt_bad;
     /**
      * Initializes the controller class.
      */
@@ -85,9 +88,9 @@ public class CommentsFxmlController implements Initializable {
             try {
                 
                 
-                if(api.POSTReq(txt_cmt.getText()) == 1)
+                if(api.POSTReq(txt_bad.getText()) == 1)
                 {
-                    serv.ajouter(new Comments(NewFXMain.user, txt_cmt.getText() , LocalDateTime.now(), blog));
+                    serv.ajouter(new Comments(NewFXMain.user, txt_bad.getText() , LocalDateTime.now(), blog));
 ((Node)(event.getSource())).getScene().getWindow().hide();
            Alert alert = new Alert(Alert.AlertType.INFORMATION.INFORMATION);
 		alert.setTitle("Succes");

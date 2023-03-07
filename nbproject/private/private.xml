@@ -2,17 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/gui/FXMLaddBlogController.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/gui/FXMLController.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/gui/ConsulterBlogController.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/gui/FXMLBlogDetailController.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/gui/NewFXMain.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/gui/ConversationController.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/gui/BlogStatisticsController.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/gui/AdminController.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/gui/AdminblogController.java</file>
-            <file>file:/C:/Users/Asus/Documents/NetBeansProjects/FreelanceApplication/src/gui/ModifierBlogController.java</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>

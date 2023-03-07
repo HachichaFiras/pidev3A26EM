@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * an d open the template in the editor.
- */
+
 package gui;
 
 import esprit.entity.Candidature;
 import esprit.entity.Utilisateur;
+import esprit.services.UserService;
 import java.awt.Dimension;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -23,10 +20,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
-/**
- *
- * @author Asus
- */
+
 public class NewFXMain extends Application {
   public  static Utilisateur user = new Utilisateur(5, 1, 1, 22333333,"Hachicha", "FIRAS", "@mail", "Firas", "firas", "sfax");
 
@@ -34,6 +28,10 @@ public class NewFXMain extends Application {
     public void start(Stage primaryStage) {
      Parent root;
         try {
+            
+            
+            UserService serv = new UserService();
+            user=serv.findByid(user.getId());
             
             if(user.getRole()==1)
             { 
@@ -55,8 +53,8 @@ public class NewFXMain extends Application {
             {Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
 	
 //            
-            root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
-              Scene  scene = new Scene(root,920,600);
+            root = FXMLLoader.load(getClass().getResource("BlogController.fxml"));
+              Scene  scene = new Scene(root,920,820);
      
               
 

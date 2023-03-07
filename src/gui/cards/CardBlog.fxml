@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="253.0" prefWidth="600.0" style="-fx-border-color: red;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.cards.CardBlogController">
+   <children>
+      <Pane prefHeight="256.0" prefWidth="600.0" style="-fx-border-color: red;">
+         <children>
+            <ImageView fx:id="txt_img" fitHeight="105.0" fitWidth="120.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../1200px-User_icon-cp.svg.png" />
+               </image></ImageView>
+            <Text fx:id="txt_titre" layoutX="162.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font name="Bauhaus 93" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="txt_contenu" layoutX="169.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font name="Bodoni MT" size="14.0" />
+               </font>
+            </Text>
+            <Text fx:id="txt_nom" layoutX="53.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+               <font>
+                  <Font name="Bodoni MT" size="14.0" />
+               </font>
+            </Text>
+            <GridPane fx:id="root" layoutY="199.0" prefHeight="39.0" prefWidth="599.0">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <columnConstraints>
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+               </columnConstraints>
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                     <children>
+                        <Text fx:id="txt_date" layoutX="158.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                           <font>
+                              <Font name="Bodoni MT" size="14.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </Pane>
+               </children>
+            </GridPane>
+         </children>
+      </Pane>
+   </children>
+</VBox>

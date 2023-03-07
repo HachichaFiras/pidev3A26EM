@@ -33,6 +33,8 @@ public class MailApi {
       m.addRecipient(Message.RecipientType.TO,new InternetAddress(to));
       m.setSubject(sub);
       m.setText(msg);
+     
+      
       //envoyer le message
       Transport.send(m);
       System.out.println("Message envoyé avec succès");
@@ -44,10 +46,11 @@ public class MailApi {
    //from, password, to, subject, message
    MailApi.send(
     "firas.hachicha8@gmail.com",
-    "Mail@paris123",
+    "iqynjswzlcmazaun",
     "roussa99@gmail.com",
     "Bienvenu sur WayToLearnX",
-    "mail de test!"
+    "<html>Le titre avec <b>une partie en gras</b>,"+
+    " et <span style=\"color:blue;\">une autre partie en bleu</span>.</html>"
   );
 }
 
